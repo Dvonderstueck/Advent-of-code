@@ -11,7 +11,7 @@ with open(file_path, 'r') as test_file:
 
     
     for number in lines:
-     number = int(number.replace("\n", "0"))
+     number = int(number.strip()or 0 )
      ZwischenErgebniss = ZwischenErgebniss + number
      if number == 0:
         if Highscore < ZwischenErgebniss:     
