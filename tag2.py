@@ -4,37 +4,49 @@ with open(file_path, 'r') as test_file:
     lines = test_file.readlines()
     Highscore = 0
     for line in lines:
-            if "X" in line and "A" in line:
-                Highscore += 3
+        if "A" in line and "X" in line:
+            line = line.replace("X", "C")
+            Highscore += 3
             
-            if "B" in line and "Y" in line:
-                Highscore += 3
-            
-            if "C" in line and "Z" in line:
-                Highscore += 3
-
-            if "C" in line and "X" in line:
-                Highscore += 6
-
-            if "A" in line and "Y" in line:
-                Highscore += 6
-
-            if "B" in line and "Z" in line:
-                Highscore += 6
-
-    for line in lines:
-        Rock = 1
-        Paper = 2
-        Scissors = 3
-        A, X = Rock, Rock
-        B, Y = Paper, Paper
-        C, Z = Scissors, Scissors
-        if "X" in line:
+        if "B" in line and "X" in line:
+            line = line.replace("X", "A")
             Highscore += 1
-        if "Y" in line:
+            
+        if "C" in line and "X" in line:
+            line = line.replace("X", "B")
             Highscore += 2
-        if "Z" in line:
+
+        if "A" in line and "Y" in line:
+            line = line.replace("Y", "A")
+            Highscore += 1
             Highscore += 3
 
-    
+        if "B" in line and "Y" in line:
+            line = line.replace("Y", "B")
+            Highscore += 2
+            Highscore += 3
+
+        if "C" in line and "Y" in line:
+            line = line.replace("Y", "C")
+            Highscore += 3
+            Highscore += 3
+
+        if "A" in line and "Z" in line:
+            line = line.replace("Z", "B")
+            Highscore += 2
+            Highscore += 6
+
+        if "B" in line and "Z" in line:
+            line = line.replace("Z", "C")
+            Highscore += 3
+            Highscore += 6
+
+        if "C" in line and "Z" in line:
+            line = line.replace("Z", "A")
+            Highscore += 1
+            Highscore += 6
+            
+
+       
+
 print(Highscore)
